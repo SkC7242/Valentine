@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For Fuchu 💚</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: #ece5dd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .phone {
+    width: 360px;
+    height: 640px;
+    background: #e5ddd5;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header {
+    background: #075e54;
+    color: white;
+    padding: 15px;
+    font-weight: bold;
+  }
+
+  .chat {
+    flex: 1;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+  }
+
+  .msg {
+    max-width: 75%;
+    padding: 10px 14px;
+    border-radius: 18px;
+    font-size: 14px;
+    animation: pop 0.3s ease;
+  }
+
+  .from-me {
+    background: #dcf8c6;
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+  }
+
+  .from-her {
+    background: white;
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+  }
+
+  .actions {
+    padding: 12px;
+    background: #f0f0f0;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+  }
+
+  button {
+    padding: 10px 22px;
+    border-radius: 20px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  #yesBtn {
+    background: #25d366;
+    color: white;
+  }
+
+  #yesBtn:hover {
+    transform: scale(1.1);
+  }
+
+  #noBtn {
+    background: #bbb;
+    color: #333;
+    position: absolute;
+    right: 20px;
+  }
+
+  .success {
+    text-align: center;
+    padding: 20px;
+    display: none;
+  }
+
+  @keyframes pop {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="phone">
+  <div class="header">💚 Fuchu</div>
+
+  <div class="chat" id="chat">
+    <div class="msg from-me">Hey Fuchu 💕</div>
+    <div class="msg from-me">I have a very important question 🙈</div>
+    <div class="msg from-me">Please be my Valentine 💖</div>
+  </div>
+
+  <div class="actions" id="actions">
+    <button id="yesBtn">Yes 😍</button>
+    <button id="noBtn">No 🙄</button>
+  </div>
+
+  <div class="success" id="success">
+    <h2>YAYYYY 🥰</h2>
+    <p>Fuchu, you just made me the happiest person ❤️</p>
+    <p>Happy Valentine’s 💚</p>
+  </div>
+</div>
+
+<script>
+  const noBtn = document.getElementById("noBtn");
+  const yesBtn = document.getElementById("yesBtn");
+  const chat = document.getElementById("chat");
+  const actions = document.getElementById("actions");
+  const success = document.getElementById("success");
+
+  const teasingMessages = [
+    "Excuse me?? 😏",
+    "That button is broken btw 😂",
+    "No is not an option, madam 🙄",
+    "Nice try Fuchu 😌",
+    "The universe says YES 💫",
+    "Why are you running? 🏃‍♀️💨",
+    "Stop playing hard to get 😜",
+    "Just click Yes already 💚"
+  ];
+
+  let teaseIndex = 0;
+
+  function addHerMessage(text) {
+    const msg = document.createElement("div");
+    msg.className = "msg from-her";
+    msg.innerText = text;
+    chat.appendChild(msg);
+    chat.scrollTop = chat.scrollHeight;
+  }
+
+  function moveNoButton() {
+    const x = Math.random() * 140 - 70;
+    const y = Math.random() * 40 - 20;
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+
+    addHerMessage(teasingMessages[teaseIndex % teasingMessages.length]);
+    teaseIndex++;
+  }
+
+  noBtn.addEventListener("mouseover", moveNoButton);
+  noBtn.addEventListener("click", moveNoButton);
+
+  yesBtn.addEventListener("click", () => {
+    actions.style.display = "none";
+    success.style.display = "block";
+    addHerMessage("Okayyy yes 💖🥰");
+  });
+</script>
+
+</body>
+</html>
