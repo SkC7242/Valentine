@@ -131,7 +131,7 @@
 <body>
 
 <div class="phone">
-  <div class="header">💚 Fuchu</div>
+  <div class="header">Fuchu ❤️</div>
 
   <div class="chat" id="chat">
     <div class="msg from-me">Hey Fuchu 💕</div>
@@ -147,7 +147,7 @@
   <div class="success" id="success">
     <h2>YAYYYY 🥰</h2>
     <p>Fuchu, resistance was futile ❤️</p>
-    <p>Happy Valentine’s 💚</p>
+    <p>Happy Valentine’s ❤️</p>
   </div>
 </div>
 
@@ -164,13 +164,21 @@
   const ping = document.getElementById("ping");
 
   const savageMessages = [
+    "Excuse me?? 😏", 
+    "That button is broken btw 😂", 
+    "No is not an option, madam 🙄", 
+    "Nice try Fuchu 😌",
+    "The universe says YES 💫", 
+    "Why are you running? 🏃‍♀️💨", 
+    "Stop playing hard to get 😜", 
+    "Just click Yes already 💚"
     "Bold of you to try 😌",
     "Absolutely not happening 🙄",
-    "That No button is decorative.",
+    "That No button is Not Working.",
     "Nice confidence. Wrong choice.",
     "You really thought I’d allow that?",
     "No rejected by the universe 💫",
-    "Just click Yes and relax 💚",
+    "Just click Yes and relax ❤️",
     "Stop fighting destiny, Fuchu 😏"
   ];
 
